@@ -1,39 +1,62 @@
-<?php
-require('./database.php');
-
-if (isset($_POST['students'])) 
-    $Username = trim($_POST['Username']);
-    $Password = trim($_POST['Password']);
-
-if (empty($Username) || empty($Password)) {
-        echo "<script>alert('Please fill up all fields')</script>";
-    } else {
-        $queryValidate = "SELECT * FROM students WHERE Username = '$Username' AND Password = md5('$Password')";
-        $sqlValidate = mysqli_query($connection,$queryValidate);
-
-      if (mysqli_num_rows($sqlValidate) > 0) {
-          echo 'Valid Credential';
-      } else {
-          echo 'Invalid Credential';
-      }
-}
-?>
-
-
-
-<!DOCTYPE html>
-<html lang="en">
+<?php session_start(); ?>
+<?php include('database.php'); ?>
+<html> 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>LOGIN</title>
+
+<title>SIGN IN</title>
+
+<link rel="stylesheet" type="text/css" href="design.css">
 </head>
-<body>
-    <h3> STUDENT LOG IN <h3>
-  <form action="/cts_qr/php-crud/login.php" method="post">
-    <input type="text" name="Username" placeholder="Enter your Username"/>
-    <input type="Password" name="Password" placeholder="Enter your Password"/>
-    <input type="submit" name="login" value="LOGIN"/>
+
+   <div class ="header1">
+  <h1 class="h1">CONTACT TRACING APPLICATION</h1>
+<div class="form-wrapper">
+	
+  
+  <form action="#" method="post">
+    <h3>SIGN IN</h3>
+	
+    <div class="form-item">
+		<input type="text" name="Username" required="required" placeholder="Username" autofocus required></input>
+    </div>
+    
+    <div class="form-item">
+		<input type="Password" name="pass" required="required" placeholder="Password" required></input>
+    </div>
+    
+    <div class="button-panel">
+		<input type="submit" class="button" title="Log In" name="login" value="Login"></input>
+    </div>
   </form>
+  <?php
+	if (isset($_POST['login']))
+		{
+			$Username = mysqli_real_escape_string($con, $_POST['Username']);
+			$Password = mysqli_real_escape_string($con, $_POST['pass']);
+			$query 		= mysqli_query($con, "SELECT * FROM students WHERE  password='$Password' and username='$Username'");
+			$row		= mysqli_fetch_array($query);
+			$num_row 	= mysqli_num_rows($query);
+			
+			if ($num_row > 0) 
+				{			
+					$_SESSION['user_id']=$row['user_id'];
+					header('location:hdf.php');
+					
+				}
+			else
+				{
+					echo 'Invalid Username and Password Combination';
+				}
+		}
+  ?>
+<p>
+<td>Don't have an account?</td> <a href="http://localhost/cts_qr/php-crud/create.php"> Register here </a>
+
+    <p><a href="#">Forgot password?</a></p>
+  </div>
+  
+</div>
+
 </body>
 </html>
+
