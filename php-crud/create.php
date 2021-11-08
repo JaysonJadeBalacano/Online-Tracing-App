@@ -16,8 +16,8 @@ $Password = $_POST['Password'];
 $querycreate = "INSERT INTO students VALUES (null,'$LastName', '$FirstName', '$MiddleName', '$Birthdate', '$HomeAddress', '$PhoneNo.', '$EmailAddress', '$Username', '$Password', '$Course')";
 $sqlcreate = mysqli_query($connection,$querycreate);
 echo '<script>alert("Successfully Inserted")</script>';
-echo '<script>window.location.href = "/cts_qr/php-crud/index.php"</script>';
+echo '<script>window.location.href = "/cts_qr/php-crud/create.php"</script>';
 } else{
-	echo '<script>window.location.href = "/cts_qr/php-crud/index.php"</script>';
+	echo '<script>window.location.href = "/cts_qr/php-crud/create.php"</script>';
 }
 ?>

@@ -1,55 +1,6 @@
 <?php
 require('./read.php');
 ?>
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewpoint" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Contact Tracing App</title>
-</head>
-<style>
-  html, body {
-    margin: 0;
-    padding: 0;
-  }
-  .main {
-    height: 100vh;
-
-    /* Grid */
-    display: grid;
-    grid-template-rows: auto 1fr;
-    justify-items: center;
-    row-gap: 20px;
-
-  }
-.main .create-main {
-  grid-row: 1/2;
-  display: grid;
-  grid-auto-rows: auto;
-  row-gap: 2px;
-}
-.main .create-main h3 {
-  text-align: center;
-}
-.main .read-main {
-  grid-row: 2/3;
-}
-.main .read-main tr th {
-  width: 200px;
-}
-.main .read-main tr td {
-  text-align: center;
-}
-.main .read-main tr td:nth-child(4) {
-  display: grid;
-  grid-auto-flow: column;
-}
-</style>
-
-<body>
-
 <div class="main">
   <form class="create-main" action="/cts_qr/php-crud/create.php" method="post">
     <h3>CREATE USER</h3>
@@ -103,9 +54,4 @@ require('./read.php');
 </form>
 </td>
 </tr>
-<?php } ?>
-</table>
-</div>
-
-</body>
-</html>
+<?php
