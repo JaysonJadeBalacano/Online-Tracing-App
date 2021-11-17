@@ -1,0 +1,59 @@
+body{
+    margin: 0;
+    padding: 0;
+    background: rgb(164, 241, 252);
+}
+.h1{
+    position: absolute;
+    text-align: center;
+    right: 400px;
+}
+.form-wrapper{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 400px;
+    height: 300px;
+    background: white;
+    border-radius: 10px;
+}
+.form-wrapper form{
+    padding: 0 40px;
+    box-sizing: border-box;
+}
+.form-wrapper h3{
+    text-align: center;
+    font-size: 23px;
+}
+.form-item{
+    margin-top: 3%;
+}
+input[type=text]{
+    width: 100%;
+    height: 25px;
+}
+input[type=password]{
+    width: 100%;
+    height: 25px;
+}
+.button-panel{
+    margin-top: 5%;
+}
+input[type="submit"]{
+    width: 100%;
+    height: 30px;
+    border: 1px solid;
+    background: #2691d9;
+    font-size: 18px;
+    color: #e9f4fb;
+    font-weight: 700;
+    cursor: pointer;
+    outline: none;
+    border-radius: 30px;
+}
+.signup_link{
+    margin: 60px 0;
+    text-align: center;
+    font-size: 16px;
+}
